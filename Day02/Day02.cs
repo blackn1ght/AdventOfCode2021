@@ -1,23 +1,15 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using AdventOfCode2021.Utilities;
-using NUnit.Framework;
 
-namespace AdventOfCode2021
+namespace AdventOfCode2021.Day02
 {
-    [TestFixture]
     public class Day02
     {
-        public class Instruction
-        {
-            public string Direction { get; set; }
-            public int Value { get; set; }
-        }
+        private readonly IEnumerable<Instruction> _instructions;
 
-        private static IEnumerable<Instruction> GetInstructions()
+        public Day02(string[] inputLines)
         {
-            return DayInputReader
-                .Read(2)
+            _instructions = inputLines
                 .Select(x => x.Split(' '))
                 .Select(x => new Instruction
                 {
@@ -26,15 +18,13 @@ namespace AdventOfCode2021
                 });
         }
 
-        [Test]
-        public void Part1()
-        {
-            var instructions = GetInstructions();
 
+        public int Part1()
+        {
             var position = 0;
             var depth = 0;
 
-            foreach (var instruction in instructions)
+            foreach (var instruction in _instructions)
             {
                 switch (instruction.Direction)
                 {
@@ -52,19 +42,16 @@ namespace AdventOfCode2021
 
             var answer = position * depth;
 
-            Assert.AreEqual(1488669, answer);
+            return answer;
         }
 
-        [Test]
-        public void Part2()
+        public int Part2()
         {
-            var instructions = GetInstructions();
-
             var position = 0;
             var depth = 0;
             var aim = 0;
 
-            foreach (var instruction in instructions)
+            foreach (var instruction in _instructions)
             {
                 switch (instruction.Direction)
                 {
@@ -83,7 +70,7 @@ namespace AdventOfCode2021
 
             var answer = position * depth;
 
-            Assert.AreEqual(1176514794, answer);
+            return answer;
         }
     }
 }

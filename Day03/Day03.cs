@@ -1,25 +1,28 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
-using AdventOfCode2021.Utilities;
-using NUnit.Framework;
 
-namespace AdventOfCode2021
+namespace AdventOfCode2021.Day03
 {
-    [TestFixture]
     public class Day03
     {
-        [Test]
-        public void Part1()
+        private readonly IReadOnlyList<string> _diagnosticLines;
+
+        public Day03(string[] inputLines)
         {
-            var diagnosticLines = DayInputReader.Read(3).ToList();
-            var lineCount = diagnosticLines.Count;
-            var lineLength = diagnosticLines[0].Length;
+            _diagnosticLines = inputLines.ToList();
+        }
+
+        public int Part1()
+        {
+            var lineCount = _diagnosticLines.Count;
+            var lineLength = _diagnosticLines[0].Length;
 
             var gammaRate = "";
 
             for (var i = 0; i < lineLength; i++)
             {
-                var zeroes = diagnosticLines.Sum(line => line[i] == '0' ? 1 : 0);
+                var zeroes = _diagnosticLines.Sum(line => line[i] == '0' ? 1 : 0);
 
                 gammaRate += (zeroes > (lineCount / 2)) ? "0" : "1";
             }
@@ -43,15 +46,13 @@ namespace AdventOfCode2021
 
             var answer = gammaNumber * epsilonNumber;
 
-            Assert.AreEqual(2967914, answer);
+            return answer;
         }
 
-        [Test]
-        public void Part2()
+        public int Part2()
         {
-            var diagnosticLines = DayInputReader.Read(3).ToList();
-            var oxygenLines = diagnosticLines.ToList();
-            var co2ScrubberLines = diagnosticLines.ToList();
+            var oxygenLines = _diagnosticLines.ToList();
+            var co2ScrubberLines = _diagnosticLines.ToList();
 
             var position = 0;
 
@@ -83,7 +84,7 @@ namespace AdventOfCode2021
             var co2ScrubberRating = Convert.ToInt32(co2ScrubberLines[0], 2);
             var answer = oxygenGeneratorRating * co2ScrubberRating;
 
-            Assert.AreEqual(7041258, answer);
+            return answer;
         }
     }
 }

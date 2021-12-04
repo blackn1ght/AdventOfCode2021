@@ -1,16 +1,19 @@
-using System.Linq;
-using AdventOfCode2021.Utilities;
-using NUnit.Framework;
+﻿using System.Linq;
 
-namespace AdventOfCode2021
+namespace AdventOfCode2021.Day01
 {
-    [TestFixture]
     public class Day01
     {
-        [Test]
-        public void Part1()
+        private readonly string[] _inputLines;
+
+        public Day01(string[] inputLines)
         {
-            var depths = DayInputReader.Read(1).Select(int.Parse).ToList();
+            _inputLines = inputLines;
+        }
+
+        public int Part1()
+        {
+            var depths = _inputLines.Select(int.Parse).ToList();
 
             var increments = 0;
 
@@ -22,13 +25,12 @@ namespace AdventOfCode2021
                 if (current > previous) increments++;
             }
 
-            Assert.AreEqual(1502, increments);
+            return increments;
         }
 
-        [Test]
-        public void Part2()
+        public int Part2()
         {
-            var depths = DayInputReader.Read(1).Select(int.Parse).ToList();
+            var depths = _inputLines.Select(int.Parse).ToList();
 
             var increments = 0;
 
@@ -40,7 +42,7 @@ namespace AdventOfCode2021
                 if (currentWindowTotal > previousWindowTotal) increments++;
             }
 
-            Assert.AreEqual(1538, increments);
+            return increments;
         }
     }
 }
