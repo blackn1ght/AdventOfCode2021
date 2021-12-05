@@ -45,20 +45,9 @@ namespace AdventOfCode2021.Day05
         private (int width, int height) GetGridDimensions()
         {
             var startMaxWidth = _lines.Max(l => l.Start.Item1);
-            var endMaxWidth = _lines.Max(l => l.End.Item1);
-
             var startMaxHeight = _lines.Max(l => l.Start.Item2);
-            var endMaxHeight = _lines.Max(l => l.End.Item2);
 
-            var maxWidth = endMaxWidth > startMaxWidth
-                ? endMaxWidth
-                : startMaxWidth;
-
-            var maxHeight = endMaxHeight > startMaxHeight
-                ? endMaxHeight
-                : startMaxHeight;
-
-            return (maxWidth, maxHeight);
+            return (startMaxWidth, startMaxHeight);
         }
 
         private List<List<int>> GenerateGrid()
@@ -69,14 +58,10 @@ namespace AdventOfCode2021.Day05
 
             for (var y = 0; y <= height; y++)
             {
-                var cells = new List<int>();
-
-                for (var x = 0; x <= width; x++)
-                {
-                    cells.Add(0);
-                }
-
-                grid.Add(cells);
+                grid.Add(Enumerable
+                    .Range(0, width + 1)
+                    .Select(n => 0)
+                    .ToList());
             }
 
             return grid;
