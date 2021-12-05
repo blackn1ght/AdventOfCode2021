@@ -3,18 +3,18 @@ using NUnit.Framework;
 namespace AdventOfCode2021.Day02
 {
     [TestFixture]
-    public class Day02Tests : TestBase
+    public class DiveChallengeTests : TestBase
     {
-        public Day02Tests() : base(2)
+        public DiveChallengeTests() : base(2)
         {
         }
 
         [Test]
         public override void Part1_PlayerInput()
         {
-            var day = new Day02(InputLines);
+            var challenge = new DiveChallenge(InputLines);
 
-            var answer = day.Part1();
+            var answer = challenge.Part1();
 
             Assert.AreEqual(1488669, answer);
         }
@@ -22,9 +22,9 @@ namespace AdventOfCode2021.Day02
         [Test]
         public override void Part1_ExampleInput()
         {
-            var day = new Day02(ExampleLines);
+            var challenge = new DiveChallenge(ExampleLines);
 
-            var answer = day.Part1();
+            var answer = challenge.Part1();
 
             Assert.AreEqual(150, answer);
         }
@@ -32,9 +32,9 @@ namespace AdventOfCode2021.Day02
         [Test]
         public override void Part2_PlayerInput()
         {
-            var day = new Day02(InputLines);
+            var challenge = new DiveChallenge(InputLines);
 
-            var answer = day.Part2();
+            var answer = challenge.Part2();
 
             Assert.AreEqual(1176514794, answer);
         }
@@ -42,9 +42,9 @@ namespace AdventOfCode2021.Day02
         [Test]
         public override void Part2_ExampleInput()
         {
-            var day = new Day02(ExampleLines);
+            var challenge = new DiveChallenge(ExampleLines);
 
-            var answer = day.Part2();
+            var answer = challenge.Part2();
 
             Assert.AreEqual(900, answer);
         }

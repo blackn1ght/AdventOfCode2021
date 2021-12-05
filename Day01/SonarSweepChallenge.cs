@@ -2,11 +2,11 @@
 
 namespace AdventOfCode2021.Day01
 {
-    public class Day01
+    public class SonarSweepChallenge
     {
         private readonly string[] _inputLines;
 
-        public Day01(string[] inputLines)
+        public SonarSweepChallenge(string[] inputLines)
         {
             _inputLines = inputLines;
         }

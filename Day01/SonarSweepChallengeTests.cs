@@ -3,18 +3,18 @@ using NUnit.Framework;
 namespace AdventOfCode2021.Day01
 {
     [TestFixture]
-    public class Day01Tests : TestBase
+    public class SonarSweepChallengeTests : TestBase
     {
-        public Day01Tests() : base(1)
+        public SonarSweepChallengeTests() : base(1)
         {
         }
         
         [Test]
         public override void Part1_PlayerInput()
         {
-            var day = new Day01(InputLines);
+            var challenge = new SonarSweepChallenge(InputLines);
 
-            var answer = day.Part1();
+            var answer = challenge.Part1();
 
             Assert.AreEqual(1502, answer);
         }
@@ -22,9 +22,9 @@ namespace AdventOfCode2021.Day01
         [Test]
         public override void Part1_ExampleInput()
         {
-            var day = new Day01(ExampleLines);
+            var challenge = new SonarSweepChallenge(ExampleLines);
 
-            var answer = day.Part1();
+            var answer = challenge.Part1();
 
             Assert.AreEqual(7, answer);
         }
@@ -32,7 +32,7 @@ namespace AdventOfCode2021.Day01
         [Test]
         public override void Part2_PlayerInput()
         {
-            var day = new Day01(InputLines);
+            var day = new SonarSweepChallenge(InputLines);
 
             var answer = day.Part2();
 
@@ -42,9 +42,9 @@ namespace AdventOfCode2021.Day01
         [Test]
         public override void Part2_ExampleInput()
         {
-            var day = new Day01(ExampleLines);
+            var challenge = new SonarSweepChallenge(ExampleLines);
 
-            var answer = day.Part2();
+            var answer = challenge.Part2();
 
             Assert.AreEqual(5, answer);
         }

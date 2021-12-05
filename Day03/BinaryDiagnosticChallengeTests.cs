@@ -2,18 +2,18 @@
 
 namespace AdventOfCode2021.Day03
 {
-    public class Day03Tests : TestBase
+    public class BinaryDiagnosticChallengeTests : TestBase
     {
-        public Day03Tests() : base(3)
+        public BinaryDiagnosticChallengeTests() : base(3)
         {
         }
 
         [Test]
         public override void Part1_PlayerInput()
         {
-            var day = new Day03(InputLines);
+            var challenge = new BinaryDiagnosticChallenge(InputLines);
 
-            var answer = day.Part1();
+            var answer = challenge.Part1();
 
             Assert.AreEqual(2967914, answer);
         }
@@ -21,9 +21,9 @@ namespace AdventOfCode2021.Day03
         [Test]
         public override void Part1_ExampleInput()
         {
-            var day = new Day03(ExampleLines);
+            var challenge = new BinaryDiagnosticChallenge(ExampleLines);
 
-            var answer = day.Part1();
+            var answer = challenge.Part1();
 
             Assert.AreEqual(198, answer);
         }
@@ -31,9 +31,9 @@ namespace AdventOfCode2021.Day03
         [Test]
         public override void Part2_PlayerInput()
         {
-            var day = new Day03(InputLines);
+            var challenge = new BinaryDiagnosticChallenge(InputLines);
 
-            var answer = day.Part2();
+            var answer = challenge.Part2();
 
             Assert.AreEqual(7041258, answer);
         }
@@ -41,9 +41,9 @@ namespace AdventOfCode2021.Day03
         [Test]
         public override void Part2_ExampleInput()
         {
-            var day = new Day03(ExampleLines);
+            var challenge = new BinaryDiagnosticChallenge(ExampleLines);
 
-            var answer = day.Part2();
+            var answer = challenge.Part2();
 
             Assert.AreEqual(230, answer);
         }

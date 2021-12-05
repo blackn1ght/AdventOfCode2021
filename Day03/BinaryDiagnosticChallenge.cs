@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace AdventOfCode2021.Day03
 {
-    public class Day03
+    public class BinaryDiagnosticChallenge
     {
         private readonly IReadOnlyList<string> _diagnosticLines;
 
-        public Day03(string[] inputLines)
+        public BinaryDiagnosticChallenge(string[] inputLines)
         {
             _diagnosticLines = inputLines.ToList();
         }

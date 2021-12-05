@@ -3,11 +3,11 @@ using System.Linq;
 
 namespace AdventOfCode2021.Day04
 {
-    public class Day04
+    public class GiantSquidChallenge
     {
         private readonly Game _game;
 
-        public Day04(IReadOnlyList<string> inputLines)
+        public GiantSquidChallenge(IReadOnlyList<string> inputLines)
         {
             _game = new Game(inputLines);
         }

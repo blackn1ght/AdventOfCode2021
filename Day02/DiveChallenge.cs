@@ -3,11 +3,11 @@ using System.Linq;
 
 namespace AdventOfCode2021.Day02
 {
-    public class Day02
+    public class DiveChallenge
     {
         private readonly IEnumerable<Instruction> _instructions;
 
-        public Day02(string[] inputLines)
+        public DiveChallenge(string[] inputLines)
         {
             _instructions = inputLines
                 .Select(x => x.Split(' '))
