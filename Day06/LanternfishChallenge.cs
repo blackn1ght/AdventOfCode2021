@@ -5,7 +5,7 @@ namespace AdventOfCode2021.Day06
 {
     public class LanternfishChallenge
     {
-        private int[] _lanternfish;
+        private readonly int[] _lanternfish;
 
         public LanternfishChallenge(IReadOnlyList<string> inputLines)
         {
