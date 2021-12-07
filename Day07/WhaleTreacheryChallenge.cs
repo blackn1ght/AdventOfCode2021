@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace AdventOfCode2021.Day07
@@ -30,9 +31,7 @@ namespace AdventOfCode2021.Day07
             {
                 foreach (var innerPosition in uniqueCrabPositions)
                 {
-                    var fuelCost = uniqueCrabPosition > innerPosition
-                        ? uniqueCrabPosition - innerPosition
-                        : innerPosition - uniqueCrabPosition;
+                    var fuelCost = Math.Abs(uniqueCrabPosition - innerPosition);
 
                     var totalFuelCostForCrabsInPosition = fuelCost * uniquePositionCountLookup[innerPosition];
 
@@ -69,7 +68,7 @@ namespace AdventOfCode2021.Day07
                 {
                     fuelCost = Enumerable
                         .Range(0, positionDifference + 1)
-                        .Aggregate(0, (total, current) => total + current);
+                        .Sum();
 
                     fuelCostLookup.Add(positionDifference, fuelCost);
                 }
@@ -81,9 +80,7 @@ namespace AdventOfCode2021.Day07
             {
                 foreach (var position in possiblePositions)
                 {
-                    var fuelDifference = uniqueCrabPosition > position
-                        ? uniqueCrabPosition - position
-                        : position - uniqueCrabPosition;
+                    var fuelDifference = Math.Abs(uniqueCrabPosition - position);
 
                     var fuelCost = CalculateFuelCost(fuelDifference);
 
