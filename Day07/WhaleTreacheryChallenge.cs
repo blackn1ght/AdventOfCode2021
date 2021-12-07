@@ -51,7 +51,7 @@ namespace AdventOfCode2021.Day07
                 .GroupBy(p => p)
                 .ToDictionary(n => n.Key, v => v.Count());
 
-            var possiblePositions = Enumerable.Range(0, _positions.Max()).ToList();
+            var possiblePositions = Enumerable.Range(_positions.Min(), _positions.Max()).ToList();
 
             var fuelCostLookup = new Dictionary<int, int>();
 
