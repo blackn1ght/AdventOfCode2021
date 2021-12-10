@@ -36,7 +36,7 @@ namespace AdventOfCode2021.Day09
 
             var answer = challenge.Part2();
 
-            Assert.AreNotEqual(561946, answer);
+            Assert.AreEqual(1100682, answer);
         }
 
         [Test]

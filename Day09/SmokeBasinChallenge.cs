@@ -63,8 +63,8 @@ namespace AdventOfCode2021.Day09
                 .Where((coordinates) => neighbours.Any(n => n.X == coordinates.X && n.Y == coordinates.Y) == false)
                 .Where((coordinates) => _heightMap[coordinates.Y, coordinates.X] < 9)
                 .Where((coordinates) =>
-                    (_heightMap[coordinates.Y, coordinates.X] == currentHeight + 1
-                    || _heightMap[coordinates.Y, coordinates.X] == currentHeight - 1))
+                    _heightMap[coordinates.Y, coordinates.X] <= currentHeight + 1
+                    || _heightMap[coordinates.Y, coordinates.X] >= currentHeight - 1)
                 .ToList();
 
             foreach (var neighbour in neighbouringHeightCoordinates)
@@ -77,23 +77,18 @@ namespace AdventOfCode2021.Day09
 
         public int Part2()
         {
-            var lowPoints = GetCoordinatesOfLowPoints();
+            return GetCoordinatesOfLowPoints()
+                .Select(xy =>
+                {
+                    var basin = new HashSet<(int Y, int X)> {xy};
 
-            var basinSizes = new List<int>();
+                    GetCoordinatesOfCloseNeighbours(xy.Y, xy.X, basin);
 
-            foreach (var lowPoint in lowPoints)
-            {
-                var basin = new HashSet<(int Y, int X)> { lowPoint };
-
-                GetCoordinatesOfCloseNeighbours(lowPoint.Y, lowPoint.X, basin);
-
-                basinSizes.Add(basin.Count);
-            }
-
-            return basinSizes
+                    return basin.Count;
+                })
                 .OrderByDescending(x => x)
                 .Take(3)
-                .Aggregate(1, (total, value) => total * value);
+                .Aggregate(1, (total, num) => total * num);
         }
     }
 }
