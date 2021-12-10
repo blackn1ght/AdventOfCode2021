@@ -16,19 +16,16 @@ namespace AdventOfCode2021.Day10
         {
             var chars = line.ToCharArray();
 
-            var stack = new Stack<char>();
             var previousTags = new Stack<char>();
 
             foreach (var thisChar in chars)
             {
                 if (Tags.ContainsKey(thisChar))
                 {
-                    stack.Push(Tags[thisChar]);
                     previousTags.Push(thisChar);
                 }
                 else
                 {
-                    stack.Pop();
                     previousTags.Pop();
                 }
             }
@@ -48,21 +45,21 @@ namespace AdventOfCode2021.Day10
         {
             var chars = line.ToCharArray();
 
-            var stack = new Stack<char>();
+            var expectedClosingTags = new Stack<char>();
             var previousTags = new Stack<char>();
 
             foreach (var thisChar in chars)
             {
                 if (Tags.ContainsKey(thisChar))
                 {
-                    stack.Push(Tags[thisChar]);
+                    expectedClosingTags.Push(Tags[thisChar]);
                     previousTags.Push(thisChar);
                 }
                 else
                 {
-                    if (stack.Peek() != Tags[previousTags.Peek()] || thisChar != stack.Peek()) return thisChar;
+                    if (expectedClosingTags.Peek() != Tags[previousTags.Peek()] || thisChar != expectedClosingTags.Peek()) return thisChar;
 
-                    stack.Pop();
+                    expectedClosingTags.Pop();
                     previousTags.Pop();
                 }
             }
